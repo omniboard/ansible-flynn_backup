@@ -1,0 +1,22 @@
+- name: AWS CLI
+  pip:
+    name: awscli
+    state: present
+
+- name: AWS Key ID in cron
+  become: true
+  cronvar:
+    cron_file: flynnbackups
+    user: "{{ flynn_backup_username }}"
+    name: AWS_ACCESS_KEY_ID
+    value: "{{ flynn_backup_aws.access_key_id }}"
+    state: present
+
+- name: AWS Key Secret in cron
+  become: true
+  cronvar:
+    cron_file: flynnbackups
+    user: "{{ flynn_backup_username }}"
+    name: AWS_SECRET_ACCESS_KEY
+    value: "{{ flynn_backup_aws.secret_access_key }}"
+    state: present

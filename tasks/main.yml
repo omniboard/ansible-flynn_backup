@@ -1,0 +1,26 @@
+---
+- include: user.yml
+
+- include: sentry.yml
+
+- name: backup script
+  become: true
+  template:
+    src: flynnbackup.sh
+    dest: "{{ flynn_backup_executable }}"
+    owner: "{{ username }}"
+    mode: u=rx,g=rx,o=rx
+
+- name: log location
+  become: true
+  file:
+    path: "{{ flynn_backup_log_directory }}"
+    state: directory
+    mode: u=rwx,g=rwx,o=rx
+    owner: "{{ flynn_backup_username }}"
+
+- include: cron_job.yml
+  with_items: "{{ flynn_backup_clusters }}"
+
+- include: remove_cron_job.yml
+  with_items: "{{ flynn_backup_remove_clusters }}"

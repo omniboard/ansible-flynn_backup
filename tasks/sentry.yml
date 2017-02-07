@@ -1,0 +1,26 @@
+---
+- name: cron-sentry
+  when: flynn_backup_sentry_dsn is defined
+  become: true
+  pip:
+    name: cron-sentry
+    state: present
+
+- name: sentry config in cron
+  when: flynn_backup_sentry_dsn is defined
+  become: true
+  cronvar:
+    cron_file: flynnbackups
+    user: "{{ flynn_backup_username }}"
+    name: SENTRY_DSN
+    value: "{{ flynn_backup_sentry_dsn }}"
+    state: present
+
+- name: no sentry config in cron
+  when: flynn_backup_sentry_dsn is not defined
+  become: true
+  cronvar:
+    cron_file: flynnbackups
+    user: "{{ flynn_backup_username }}"
+    name: SENTRY_DSN
+    state: absent

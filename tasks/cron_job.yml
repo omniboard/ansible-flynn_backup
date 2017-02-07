@@ -1,0 +1,14 @@
+---
+- name: "cron job for {{ item.name }}"
+  become: true
+  cron:
+    user: "{{ flynn_backup_username }}"
+    month: "{{ item.month | default('*') }}"
+    day: "{{ item.day | default('*') }}"
+    weekday: "{{ item.weekday | default('*') }}"
+    hour: "{{ item.hour | default('*') }}"
+    minute: "{{ item.minute | default('*') }}"
+    cron_file: flynnbackups
+    name: "flynnbackup {{ item.name }}"
+    job: "{% if flynn_backup_sentry_dsn is defined %}/usr/local/bin/cron-sentry {% endif %}{{ flynn_backup_executable }} {{ item.name }} >>{{ flynn_backup_log_directory }}/{{ item.name }}.log 2>&1"
+    state: present

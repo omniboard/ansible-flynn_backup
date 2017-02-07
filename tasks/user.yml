@@ -1,0 +1,17 @@
+---
+- name: flynnbackups user group
+  when: flynn_backup_gid is defined
+  become: true
+  group:
+    name: "{{ flynn_backup_groupname }}"
+    gid: "{{ flynn_backup_gid }}"
+
+- name: flynnbackups user
+  when: flynn_backup_uid is defined
+  become: true
+  user:
+    name: "{{ flynn_backup_username }}"
+    group: "{{ flynn_backup_groupname }}"
+    shell: "/bin/bash"
+    comment: "Performs Flynn backups"
+    uid: "{{ flynn_backup_uid }}"

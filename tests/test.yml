@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - name: ansible-role-flynn_backup
+      vars:
+        flynn_backup_username: flynnbackups
+        flynn_backup_clusters:
+        - name: cluster0
+          month: *
+          day: *
+          weekday: *
+          hour: *
+          minute: 0
+        flynn_backup_remove_clusters:
+        - old_cluster
+        flynn_backup_aws:
+          access_key_id: key
+          secret_access_key: secret
+        flynn_backup_s3_bucket_name: bucketname
+        flynn_backup_sentry_dsn: https://sentry.example.com/123

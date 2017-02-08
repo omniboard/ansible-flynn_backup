@@ -15,10 +15,10 @@ flynn_backup_username: flynnbackups
 # For more information on the cron settings, see the Ansible cron module.
 flynn_backup_clusters:
 - name: cluster0
-  month: *
-  day: *
-  weekday: *
-  hour: *
+  month: "*"
+  day: "*"
+  weekday: "*"
+  hour: "*"
   minute: 0
 
 flynn_backup_remove_clusters:

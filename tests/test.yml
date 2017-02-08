@@ -4,7 +4,7 @@
   roles:
     - name: ansible-role-flynn_backup
       vars:
-        flynn_backup_username: flynnbackups
+        flynn_backup_username: "{{ lookup('env', 'USER') }}"
         flynn_backup_clusters:
         - name: cluster0
           month: "*"

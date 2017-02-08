@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/omniboard/ansible-role-flynn_backup.svg?branch=master)](https://travis-ci.org/omniboard/ansible-role-flynn_backup)
+
 # Flynn CLI
 
 This Ansible role creates cron jobs that download a backup from each [Flynn](https://flynn.io) cluster and upload them to an S3 bucket.

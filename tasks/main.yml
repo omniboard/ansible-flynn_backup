@@ -20,7 +20,9 @@
     owner: "{{ flynn_backup_username }}"
 
 - include: cron_job.yml
+  when: flynn_backup_clusters
   with_items: "{{ flynn_backup_clusters }}"
 
 - include: remove_cron_job.yml
+  when: flynn_backup_remove_clusters
   with_items: "{{ flynn_backup_remove_clusters }}"

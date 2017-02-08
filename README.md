@@ -21,7 +21,7 @@ flynn_backup_clusters:
   hour: *
   minute: 0
 
-# flynn_backup_remove_clusters:
+flynn_backup_remove_clusters:
 - old_cluster
 
 # Credentials to connect to AWS.

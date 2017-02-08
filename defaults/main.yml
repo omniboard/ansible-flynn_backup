@@ -6,7 +6,7 @@ flynn_backup_username: flynnbackups
 # List of the the Flynn clusters to be backed up, along with cron time settings for the backup.
 # The cluster names will need to have been configured for the user using the flynn_cli role.
 # For more information on the cron settings, see the Ansible cron module.
-# flynn_backup_clusters:
+flynn_backup_clusters:
 # - name: cluster0
 #   month: *
 #   day: *
@@ -14,7 +14,7 @@ flynn_backup_username: flynnbackups
 #   hour: *
 #   minute: *
 
-# flynn_backup_remove_clusters:
+flynn_backup_remove_clusters:
 # - cluster1
 
 # Credentials to connect to AWS.

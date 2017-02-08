@@ -1,5 +1,5 @@
 ---
-- include: user.yml
+- include: aws.yml
 
 - include: sentry.yml
 

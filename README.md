@@ -7,19 +7,8 @@ Flynn CLI client must be configured, and access to each Flynn cluster must to be
 ## Role Variables
 
 ```yml
-# User account from which the backup jobs will be run. If `flynn_backup_uid` is set, this user
-# will be created. If not, the user must already exist.
+# User account from which the backup jobs will be run. It must already exist.
 flynn_backup_username: flynnbackups
-
-# User ID for the user that will be created. If not set, a user will not be created.
-flynn_backup_uid: 667
-
-# Name of the group that the user will be assigned to. If `flynn_backup_gid` is set, the group
-# will be created. If not, the group must already exist.
-flynn_backup_groupname: flynnbackups
-
-# Group ID for the group that will be created. If not set, a group will not be created.
-flynn_backup_gid: 667
 
 # List of the the Flynn clusters to be backed up, along with cron time settings for the backup.
 # The cluster names will need to have been configured for the user using the flynn_cli role.

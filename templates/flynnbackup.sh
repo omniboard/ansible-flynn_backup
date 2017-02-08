@@ -22,7 +22,7 @@ mkdir -p "/tmp/$backup_folder"
 
 $flynn -c $clustername cluster backup --file "/tmp/$backup_path"
 
-$aws --region "{{ backups_s3_bucket_region }}" s3 cp "/tmp/$backup_path" "s3://{{ backups_s3_bucket_name }}/$backup_path"
+$aws --region "{{ flynn_backup_s3_bucket_region }}" s3 cp "/tmp/$backup_path" "s3://{{ flynn_backup_s3_bucket_name }}/$backup_path"
 
 echo "Backup for Flynn $clustername created: $timestamp.tar"
 

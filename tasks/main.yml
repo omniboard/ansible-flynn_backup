@@ -8,7 +8,7 @@
   template:
     src: flynnbackup.sh
     dest: "{{ flynn_backup_executable }}"
-    owner: "{{ username }}"
+    owner: "{{ flynn_backup_username }}"
     mode: u=rx,g=rx,o=rx
 
 - name: log location
